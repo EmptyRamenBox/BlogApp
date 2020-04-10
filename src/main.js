@@ -3,7 +3,10 @@ import App from "./App.vue";
 import router from "./router";
 import store from "./store";
 import vuetify from "./plugins/vuetify";
+// Import Firebase libraries
 import "./plugins/firebase.js";
+// Import Axios
+import "./plugins/axios";
 
 Vue.config.productionTip = false;
 

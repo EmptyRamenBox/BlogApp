@@ -11,6 +11,29 @@
       <v-btn v-if="!user" to="/login" text>
         <span class="mr-2">Login</span>
       </v-btn>
+      <div v-else>
+        <v-menu bottom left>
+          <template v-slot:activator="{ on }">
+            <v-btn text v-on="on">
+              <span class="mr-2">{{ user.name }}</span>
+              <v-icon>mdi-menu-down</v-icon>
+            </v-btn>
+          </template>
+
+          <v-list>
+            <v-list-item>
+              <v-list-item-title>
+                <v-btn block text @click="showDialog()">Add Post</v-btn>
+              </v-list-item-title>
+            </v-list-item>
+            <v-list-item>
+              <v-list-item-title>
+                <v-btn block text @click="logOut">LogOut</v-btn>
+              </v-list-item-title>
+            </v-list-item>
+          </v-list>
+        </v-menu>
+      </div>
     </v-app-bar>
   </div>
 </template>
@@ -27,10 +50,10 @@ export default {
   },
   methods: {
     logOut() {
-      this.$firebase.auth.signOut();
+      this.$firebase.auth().signOut();
       this.setUser("");
       this.setIdToken("");
-      this.$router.push("/");
+      this.$router.push("/login");
     },
     ...mapActions(["setUser", "setIdToken", "showDialog"]),
   },
