@@ -45,8 +45,8 @@ export default {
   name: "NavBar",
   computed: {
     ...mapGetters({
-      user: "getUser",
-    }),
+      user: "getUser"
+    })
   },
   methods: {
     logOut() {
@@ -55,7 +55,7 @@ export default {
       this.setIdToken("");
       this.$router.push("/login");
     },
-    ...mapActions(["setUser", "setIdToken", "showDialog"]),
-  },
+    ...mapActions(["setUser", "setIdToken", "showDialog"])
+  }
 };
 </script>

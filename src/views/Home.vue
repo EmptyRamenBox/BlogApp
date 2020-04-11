@@ -1,5 +1,5 @@
 <template>
-  <v-container fluid>
+  <v-container fluid color="blue-grey lighten-1">
     <v-row justify="center">
       <v-col cols="12" sm="10" md="8">
         <BlogPost
@@ -22,11 +22,11 @@ export default {
   name: "Home",
   components: {
     BlogPost,
-    Dialog,
+    Dialog
   },
   data() {
     return {
-      blogs: [],
+      blogs: []
     };
   },
   mounted() {
@@ -37,7 +37,7 @@ export default {
       console.log(this.blogs);
       const response = await this.$axios("api/posts/");
       this.blogs = response.data;
-    },
-  },
+    }
+  }
 };
 </script>
